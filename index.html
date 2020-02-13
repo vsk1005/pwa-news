@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d30021" />
+    <meta name="Description" content="PWA News">
+    <link rel="manifest" href="manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PWA News">
+    <link rel="apple-touch-icon" href="images/icons/icon-touch-icon.png">
+
+    <meta name="msapplication-TileImage" content="images/icons/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <title>PWA NEWS</title>
+</head>
+
+<body>
+    <div id="search-bar" class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper red darken-3">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label id="search-label" class="label-icon active" for="search">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <i id="close-search-bt" class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div id="top-bar" class="nav-wrapper red darken-3">
+                <a href="#" class="brand-logo">PWA News</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <div class="bt-install left hide-on-large-only">
+                    <a>
+                        <i class="material-icons">get_app</i>
+                    </a>
+                </div>
+
+                <ul class="right">
+                    <li class="bt-install hide-on-med-and-down">
+                        <a>
+                            <i class="material-icons">get_app</i>
+                        </a>
+                    </li>
+                    <li id="bt-alert">
+                        <a>
+                            <i class="material-icons">notifications</i>
+                        </a>
+                    </li>
+                    <li id="bt-position">
+                        <a>
+                            <i class="material-icons">gps_fixed</i>
+                        </a>
+                    </li>
+                    <li id="nav-search-bt">
+                        <a>
+                            <i class="material-icons">search</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-content hide-on-med-and-down red darken-3">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab">
+                        <a class="headline">Headline</a>
+                    </li>
+                    <li class="tab">
+                        <a class="health">Health</a>
+                    </li>
+                    <li class="tab">
+                        <a class="sports">Sports</a>
+                    </li>
+                    <li class="tab">
+                        <a class="entertainment">Entertainment</a>
+                    </li>
+                    <li class="tab">
+                        <a class="technology">Technology</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a class="headline sidenav-close">Headline</a>
+        </li>
+        <li>
+            <a class="health sidenav-close">Health</a>
+        </li>
+        <li>
+            <a class="sports sidenav-close">Sports</a>
+        </li>
+        <li>
+            <a class="entertainment sidenav-close">Entertainment</a>
+        </li>
+        <li>
+            <a class="technology sidenav-close">Technology</a>
+        </li>
+    </ul>
+
+    <div id="news">
+        <div class="progress white">
+            <div class="indeterminate red"></div>
+        </div>
+    </div>
+
+    <footer class="page-footer hide-on-med-and-down red darken-3">
+        <div class="footer-copyright red darken-3">
+            <div class="container">
+                PWA NEWS - 2018
+            </div>
+        </div>
+    </footer>
+    <script src="library/jquery-3.2.1.min.js"></script>
+    <script src="library/lazyload.js"></script>
+    <script src="library/materialize.min.js"></script>
+    <script src="library/moment.min.js"></script>
+    <script src="js/api.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js').then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }).catch(function (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
